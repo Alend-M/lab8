@@ -12,8 +12,9 @@ export const fetchProducts = async () => {
 };
 
 export const getProductDetails = async (id) => {
+	const url = `${BASE_URL}/${id}`;
 	try {
-		const response = await axios.get(BASE_URL);
+		const response = await axios.get(url);
 		return response.data;
 	} catch (error) {
 		throw error;
@@ -34,5 +35,6 @@ export const addProduct = (product) => {
 };
 
 export const editProduct = (id, product) => {
-	return axios.put(`${BASE_URL}/add`, JSON.stringify(product));
+	const url = `${BASE_URL}/${id}/edit`;
+	return axios.put(url, JSON.stringify(product));
 };
